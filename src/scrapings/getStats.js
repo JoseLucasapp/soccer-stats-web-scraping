@@ -1,9 +1,10 @@
 import puppeteer from 'puppeteer'
 
 import { getGamesInfo } from './getGamesInfo'
-import { getTeamsInfo } from './getTeamsInfo'
+import { getTableInfo } from './getTeamsInfo'
 
 import { delay } from '../helpers/utils'
+import { getTeamsLogos } from './getTeamsLogos'
 
 export default async function getStats(code) {
     const webSiteUrl = `https://www.flashscore.com.br/jogo/${code}/#/h2h/overall`
@@ -24,6 +25,8 @@ export default async function getStats(code) {
     const changeData = await page.$$('.h2hSection > .subTabs.tabs__detail--nav > a')
     const changeOptions = await page.$$('.tabs.tabs__detail > .tabs__group > a')
 
+    const teamLogos = await getTeamsLogos(page)
+
     const allGamesData = await getGamesInfo(page)
     await delay(2)
     await changeData[1].click()
@@ -39,12 +42,10 @@ export default async function getStats(code) {
 
     await delay(1)
 
-    const teamsinfo = await getTeamsInfo(page)
-
-    await delay(1)
+    const tableInfo = await getTableInfo(page)
 
     await browser.close()
 
-    return { teamsinfo, allGamesData, homeGamesData, awayGamesData }
+    return { teamLogos, allGamesData, homeGamesData, awayGamesData, tableInfo }
 
 }
