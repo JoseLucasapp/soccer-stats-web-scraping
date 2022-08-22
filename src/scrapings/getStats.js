@@ -43,6 +43,8 @@ export default async function getStats(code) {
 
     await delay(1)
 
+    await browser.close()
+
     return { teamsinfo, allGamesData, homeGamesData, awayGamesData }
 
 }
