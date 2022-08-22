@@ -1,4 +1,4 @@
-export const getTeamsInfo = async (page) => await page.$$eval('#tournament-table-tabs-and-content > div > div > .tableWrapper > .ui-table > .ui-table__body > .table__row--selected', (divs) => divs.map((div) => {
+export const getTableInfo = async (page) => await page.$$eval('#tournament-table-tabs-and-content > div > div > .tableWrapper > .ui-table > .ui-table__body > .table__row--selected', (divs) => divs.map((div) => {
     const position = (div.querySelector('div.table__cell.table__cell--rank.table__cell--sorted div').innerHTML).replace('.', '')
     const team = div.querySelector('div.table__cell.table__cell--participant div div a.tableCellParticipant__name').innerHTML
     const score = div.querySelector('span.table__cell.table__cell--value.table__cell--score').innerHTML
