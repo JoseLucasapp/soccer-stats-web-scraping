@@ -32,4 +32,4 @@ url: <a href='http://localhost:3000'>http://localhost:3000</a>
 ### Exemplo utilizando a partida acima:
 url: <a href='http://localhost:3000/SCLKt5pH'>http://localhost:3000/SCLKt5pH</a>
 
-## Atenção, o repositório é apenas para estudos. Todos os direitos são do <a href='https://www.flashscore.com.br/'>flashscore</a>.
+### Atenção, o repositório é apenas para estudos. Todos os direitos são do <a href='https://www.flashscore.com.br/'>flashscore</a>.
